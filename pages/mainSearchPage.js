@@ -7,7 +7,7 @@ export class MainSearchPage {
         this.page = page,
         this.searchField = page.getByRole('textbox', { name: 'Search Google Maps' })
         this.searchButton = page.getByRole('button', { name: 'Search' })
-        this.directionsButton = page.getByText('Directions')//getByLabel('Directions to London')
+        this.directionsButton = page.getByText('Directions')
         this.destinationField = page.locator("div[role='combobox'] input[class='tactile-searchbox-input']").last()
         this.closeSearchButton = page.getByRole('button', { name: 'Close' })
         this.searchInputField = page.locator('#searchbox'),
@@ -37,15 +37,9 @@ export class MainSearchPage {
       }
 
       getSearchErrorLocator(text) {
-        const locator = this.page.getByText(`Google Maps can\'t find ${text}`)
+        const locator = this.page.getByText(`Google Maps can't find ${text}`)
 
         return locator
-      }
-
-      async chooseSuggestedValueByText(text) {
-        const locator = this.page.getByLabel('Suggestions').getByText(`${text}`)
-
-        await locator.click()
       }
 
       async clickOnCloseSearchButton () {

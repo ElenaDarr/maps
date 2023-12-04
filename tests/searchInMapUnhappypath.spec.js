@@ -11,10 +11,10 @@ test.beforeEach('Open main Google Maps page', async ({ page }) => {
   mainSearchPage = new MainSearchPage(page)
   await basePage.openBasePage()
   
-  await expect(page).toHaveTitle("Google Maps")
+  await expect(page).toHaveTitle('Google Maps')
 });
 
-test(`Search for ${invalidSearchValue} in maps and check search error message is displayed`, async ({ page }) => {
+test(`Search for '${invalidSearchValue}' in maps and check search error message is displayed`, async ({ page }) => {
     
   await test.step(`Check search result page for ${invalidSearchValue} is loaded`, async () => {
     mainSearchPage = new MainSearchPage(page)
@@ -23,7 +23,7 @@ test(`Search for ${invalidSearchValue} in maps and check search error message is
     await expect(page).toHaveTitle(`${invalidSearchValue} - Google Maps`)
   })   
 
-  await test.step(`Check search error message is displayed for '${invalidSearchValue} search value`, async () => {
+  await test.step(`Check search error message is displayed for '${invalidSearchValue}' search value`, async () => {
     mainSearchPage = new MainSearchPage(page)
     
     const errorMessageLocator = mainSearchPage.getSearchErrorLocator(invalidSearchValue)
@@ -32,8 +32,11 @@ test(`Search for ${invalidSearchValue} in maps and check search error message is
 });  
 
 test('Verify search is not working for empty search field', async ({ page }) => {
-  mainSearchPage = new MainSearchPage(page)
 
-  await mainSearchPage.clickOnSearchButton()
-  await expect(page).toHaveTitle("Google Maps")
+  await test.step('Check no search result is loaded for empty search value', async () => {
+    mainSearchPage = new MainSearchPage(page)
+
+    await mainSearchPage.clickOnSearchButton()
+    await expect(page).toHaveTitle('Google Maps')
+  })
 });
