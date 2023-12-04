@@ -106,9 +106,14 @@ Clone repository and open it in a code editor. Open terminal and run the followi
 >Then the left panel should have "United Kingdom" as the headline text
 >
 >AND screenshot is correct
+>
 
 **Additional possible non-functional tests**:
-1.Accessibility testing: Playwright supports feature to check accessibility violation on the page (resource: https://playwright.dev/docs/accessibility-testing)
-2. Performance testing: Do search in maps using big amount of users (resource: https://www.linkedin.com/pulse/elevating-your-playwright-tests-plugin-tzur-paldi-phd)
+
+- Accessibility testing: 
+Playwright supports feature to check accessibility violation on the page (resource: https://playwright.dev/docs/accessibility-testing)
+
+- Performance testing: 
+Do search in maps using big amount of users (resource: https://www.linkedin.com/pulse/elevating-your-playwright-tests-plugin-tzur-paldi-phd)
 
 
